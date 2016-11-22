@@ -10,8 +10,8 @@ public class App
     public static void main( String[] args )
     {
     	UserDetails user1 = new UserDetails();
-    	user1.setUserId(1);
-    	user1.setUserName("User1");
+    	user1.setUserId(3);
+    	user1.setUserName("User3");
     	
     	Configuration config = new Configuration();
     	config.configure("hibernate.cfg.xml");
