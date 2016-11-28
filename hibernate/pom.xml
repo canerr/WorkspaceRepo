@@ -5,9 +5,8 @@
 	<groupId>cresber.example</groupId>
 	<artifactId>hibernate</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
-
-	<name>hibernate</name>
+	<packaging>war</packaging>
+	<name>Hello Maven WebApp</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
@@ -60,4 +59,21 @@
 
 
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<url>http://localhost:8080/manager/text</url>
+					<server>TomcatServer</server>
+					<path>/mkyongWebApp</path>
+				</configuration>
+			</plugin>
+		</plugins>
+		
+		<finalName>Caner</finalName>
+	</build>
 </project>
