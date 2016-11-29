@@ -1,0 +1,82 @@
+<!doctype html>
+<html ng-app="myModule">
+
+	<head>
+		<script src="angular.min.js"></script>
+		<script src="script.js"></script>
+		<link rel="stylesheet" href="styles.css">
+	</head>
+
+	<body>
+		<div id="mainDiv" ng-controller="myController">
+			<table id="mainTable">
+				<thead>
+					<tr>
+						<th>Firstname</th>
+						<th>Lastname</th>
+						<th>Gender</th>
+						<th>Salary</th>
+						<th>Increase/Decrease</th>
+						<th>Rmv</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="employee in employees" ng-class="{ 'custom-class': ($index)%2 == 0 }">
+						<td>{{ employee.firstName }}</td>
+						<td>{{ employee.lastName }}</td>
+						<td>{{ employee.gender }}</td>
+						<td>{{ employee.salary }}</td>
+						<td>
+							<input type="button" value="Increase" ng-click="increaseSalary(employee)" />
+							<input type="button" value="Decrease" ng-click="decreaseSalary(employee)" />
+						</td>
+						<td style="text-align:center">
+							<input type="button" value="-" ng-click="removeRow($index)" />
+						</td>
+					</tr>
+					<tr>
+						<td>Avg Salary: {{ getAvgSalary() }}</td>
+						<td>Total Salary: {{ getTotalSalary() }}</td>
+					</tr>
+					<tr>
+						<td>
+							Increase/Decrease rate:
+						</td>
+						<td>
+							<input type="text" ng-model="salaryDelta" />
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			
+			</br>
+			</br>
+			
+			<table>
+				<thead>
+				<th colspan="2">NEW RECORD</th>
+				<tr>
+					<td>Firstname:</td>
+					<td><input type="text" ng-model="txtFirstname" /></td>
+				</tr>
+				<tr>
+					<td>Lastname:</td>
+					<td><input type="text" ng-model="txtLastname" /></td>
+				</tr>
+				<tr>
+					<td>Gender:</td>
+					<td><select ng-model="txtGender" ng-options="gender for gender in genders"></select></td>
+				</tr>
+				<tr>
+					<td>Salary:</td>
+					<td><input type="text" ng-model="txtSalary" /></td>
+				</tr>
+				<tr>
+					<td><input type="button" ng-click="save()" value="Save" /></td>
+				</tr> 
+			</table>
+		</div>
+	</body>
+
+</html>

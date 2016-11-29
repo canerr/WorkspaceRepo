@@ -11,7 +11,7 @@ public class App
     {
     	UserDetails user1 = new UserDetails();
     	user1.setUserId(3);
-    	user1.setUserName("User3");
+  //  	user1.setUserName("User3");
     	
     	Configuration config = new Configuration();
     	config.configure("hibernate.cfg.xml");
